@@ -1,0 +1,27 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "sentinel-backend": {
+      "root": "sentinel-ai/backend",
+      "framework": "express"
+    },
+    "sentinel-frontend": {
+      "root": "sentinel-ai/frontend",
+      "framework": "vite"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "sentinel-backend"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "sentinel-frontend"
+      }
+    }
+  ]
+}
